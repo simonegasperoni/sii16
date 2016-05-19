@@ -1,0 +1,8 @@
+String query1 = "PREFIX dbpedia: <http://dbpedia.org/resource/> "
+				+ "PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>"
+				+ "SELECT ?film FROM <http://dbpedia.org> WHERE { ?film dbpedia-owl:starring dbpedia:Leonardo_DiCaprio.}";
+		
+String query3= "SELECT * WHERE {"
+				+ "?movie a <http://dbpedia.org/ontology/Film> ."
+				+ "?movie <http://dbpedia.org/ontology/country> <http://it.dbpedia.org/resource/Italia> .}";
+		
