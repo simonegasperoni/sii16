@@ -26,13 +26,14 @@ esempio di file di input: file demo.xml
 SIMILITUDINE POST-DISCUSSIONE:
 
 similitudine tra post p e discussione d
-sim(p,d) (w) #uris pd + (1-w) #categories pd
+sim(p,d) = (w) #urispd + (1-w) #categoriespd
 
 * con w compreso tra 0 ed 1 
 * con #urispd numero di uri in comune tra il post e la discussione
 * con #categoriespd numero di categorie in comune tra il post e la discussione
 
-come è facile notare con il parametro w è possibile regolare l'importanza del numero di occorrenze delle uri rispetto alle categorie
+Nella raccolta di uri e categorie per discussione, le uri come le categorie si possono ripetere, questo per dare importanza ai concetti che si ripropongono nella discussione, infatti le strutture che memorizzano le uri di spotlight e le categorie non sono insiemi ma liste.
+Come è facile notare con il parametro w è possibile regolare l'importanza del numero di occorrenze delle uri rispetto alle categorie.
 
 ------------------------------------------------
 PACKAGE:
@@ -65,7 +66,6 @@ STRING xmlforum:     file di input in formato xml che contiene discussioni del p
 
 public static void serializeIndexedForum(String indexedforum, double confidence,String xmlforum) 
 throws Exception{
-
 		ArrayList<SemanticFeature> ris=getSemanticFeatureForForum(xmlforum, confidence);
 		Iterator<SemanticFeature> i=ris.iterator();
 		while(i.hasNext()){
@@ -85,7 +85,6 @@ STRING postcorpus:   corpus testuale del nuovo post
 
 public static Map<String,Double> evaluatePostInForum(String indexedforum, double confidence,double w, int n, String postcorpus) 
 throws Exception{
-
 		SemanticFeature post=getSemanticFeatureForPost(postcorpus, confidence);
 		Object forum=JSer.readAnIndexedForumOnFile(indexedforum);
 		return getClassificationBeta(n,post,(ArrayList<SemanticFeature>) forum,w);
