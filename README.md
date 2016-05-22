@@ -60,10 +60,11 @@ Metodi importanti di alto livello:
 
 * serializeIndexedForum: determinazione delle feature semantiche del forum (discussione per discussione) e serializzazione su file dati
 
-STRING indexedForum: file dati che conterrà le semantic feature dell'intero forum
-DOUBLE confidence:   confidenza per spotlight su dbpedia
-STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato
+1. STRING indexedForum: file dati che conterrà le semantic feature dell'intero forum
+2. DOUBLE confidence:   confidenza per spotlight su dbpedia
+3. STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato
 
+```
 public static void serializeIndexedForum(String indexedforum, double confidence,String xmlforum) 
 throws Exception{
 		ArrayList<SemanticFeature> ris=getSemanticFeatureForForum(xmlforum, confidence);
@@ -74,18 +75,21 @@ throws Exception{
 		}
 		JSer.writeOnFile(indexedforum,ris);
 }
+```
 
 * evaluatePostInForum: determinazione feature semantiche per post e calcolo degli score delle discussioni rispetto ad un dato forum
   
-STRING indexedForum: file dati che contiene le semantic feature dell'intero forum
-DOUBLE confidence:   confidenza per spotlight su dbpedia
-DOUBLE w:            trade-off importanza occorrenza uri/categoria
-INT n:               numero delle discussioni con score più alto rispetto al post riportate come output
-STRING postcorpus:   corpus testuale del nuovo post
+1. STRING indexedForum: file dati che contiene le semantic feature dell'intero forum
+2. DOUBLE confidence:   confidenza per spotlight su dbpedia
+3. DOUBLE w:            trade-off importanza occorrenza uri/categoria
+4. INT n:               numero delle discussioni con score più alto rispetto al post riportate come output
+5. STRING postcorpus:   corpus testuale del nuovo post
 
+```
 public static Map<String,Double> evaluatePostInForum(String indexedforum, double confidence,double w, int n, String postcorpus) 
 throws Exception{
 		SemanticFeature post=getSemanticFeatureForPost(postcorpus, confidence);
 		Object forum=JSer.readAnIndexedForumOnFile(indexedforum);
 		return getClassificationBeta(n,post,(ArrayList<SemanticFeature>) forum,w);
 }
+```
