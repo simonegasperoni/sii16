@@ -20,79 +20,73 @@ Sia le categorie che le uri sono utilizzate come metrica di similitudine per la 
 
 
 nel file xml di input sono riportati solo i post che rappresentano meglio le discussioni e le sezioni:
-esempio di file di input nel file demo.xml
+esempio di file di input: file demo.xml
 
 ------------------------------------------------
 SIMILITUDINE POST-DISCUSSIONE:
-considerando più importante la presenza di uri rispetto alle categorie (o viceversa)
 
 similitudine tra post p e discussione d
-sim(p,d) (w) #uris p_d + (1-w) #categories p_d
+sim(p,d) (w) #uris pd + (1-w) #categories pd
 
 * con w compreso tra 0 ed 1 
-* con #uris p_d numero di uri in comune
-* con #categories p_d numero di categorie in comune tra post e discussione
+* con #urispd numero di uri in comune tra il post e la discussione
+* con #categoriespd numero di categorie in comune tra il post e la discussione
 
-con frequenze
+come è facile notare con il parametro w è possibile regolare l'importanza del numero di occorrenze delle uri rispetto alle categorie
 
-   #uris p_d = Sum{Exist(uri_p&uri_d)*#occurences}
-   #categories p_d = Sum{Exist(category_p&category_d)*#occurences}
-
-(analogamente se vogliamo confrontare i post con le sezioni)
 ------------------------------------------------
 PACKAGE:
 
-* sparqlclient: esegue interrogazioni sparql su dbpedia per trovare nuove uri e nuove categorie
-* spotlightclient: spotlight, cerca le uri su dbpedia per tutti i corpi testuali
+* serialization: contiene metodi statici utili x la serializzazione delle semantic feature del forum
+* sparqlclient: esegue interrogazioni sparql su dbpedia per trovare le categorie
+* spotlightclient: spotlight, cerca le uri su dbpedia per tutti i corpi testuali grazie alle funzioni rest
 * xpathquey: modulo responsabile delle interrogazioni xpath sul file xml di input
 
-METODI IMPORTANTI:
+------------------------------------------------
+SemanticFeature
 
-sparqlclient: client per sparql.dbpedia.org
-getUrisFromCategory(categoryname): uri da categoria
-getCategoriesFromUri(uriname): categorie da uri
+è stato indispensabile definire un tipo astratto di dato: SemanticFeature
 
-spotlightclient: client per spotlight
-evaluate(stringa): ritorna un array di uri (spotlight)
+TDA SemanticFeature:
+	 String: nome discussione o corpus del post
+	 ArrayList<String>: uri spotlight
+	 ArrayList<String>: uri sparql (categorie)
 
-xpathquery: per interfacciarsi ad un xml mediante interrogazioni xpath
-getAttributes(): restituisce titoli discussioni
-getPosts(discussion): restituisce un array di post di una data discussione
+Il forum viene rappresentato da un lista di SemanticFeature
 
+-------------------------------------------------------------------
+Metodi importanti di alto livello:
 
+* serializeIndexedForum: determinazione delle feature semantiche del forum (discussione per discussione) e serializzazione su file dati
 
-----------------------------------------------------------------------
-TDA SemanticFeature { stringa discussion/corpus, spotlight uris set, sparql uris set (categories) }:
-rappresentazione della coppia discussione/post - features
-----------------------------------------------------------------------
-PSEUDOCODICE DEL MAIN:
+STRING indexedForum: file dati che conterrà le semantic feature dell'intero forum
+DOUBLE confidence:   confidenza per spotlight su dbpedia
+STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato
 
+public static void serializeIndexedForum(String indexedforum, double confidence,String xmlforum) 
+throws Exception{
 
-getSemanticFeatureForForum: ho così una lista di semantic feature (una per ogni discussione)
+		ArrayList<SemanticFeature> ris=getSemanticFeatureForForum(xmlforum, confidence);
+		Iterator<SemanticFeature> i=ris.iterator();
+		while(i.hasNext()){
+			SemanticFeature s=i.next();
+			System.out.println(s.toString());
+		}
+		JSer.writeOnFile(indexedforum,ris);
+}
 
-	ArrayList di SemanticFeature ris, vettore dei risultati finali
-	ArrayList<String> discussions=xmlq.getAttributes(), array delle discussioni
-	Per ogni discussione s dell array discussion
-			ottengo la lista dei post 'posts' tramite xpath query
-                        uris=getResources(posts), le uri dei post nel set uris
-                        sf: nuovs feature semantica: SemanticFeature(s);	
-			sf.addUri(uris), aggiungo le uri per la discussione corrente
-			sf.addOneLevelOfFeaturesByCategories(), aggiungo le categorie di tutte le uri
-			ris.add(sf), aggiungo nel vettore dei risultati la 'semantic feature'
-	fine ciclo
+* evaluatePostInForum: determinazione feature semantiche per post e calcolo degli score delle discussioni rispetto ad un dato forum
+  
+STRING indexedForum: file dati che contiene le semantic feature dell'intero forum
+DOUBLE confidence:   confidenza per spotlight su dbpedia
+DOUBLE w:            trade-off importanza occorrenza uri/categoria
+INT n:               numero delle discussioni con score più alto rispetto al post riportate come output
+STRING postcorpus:   corpus testuale del nuovo post
 
-getSemanticFeatureForPost: ottengo la semantic feature per il post con procedure simili
+public static Map<String,Double> evaluatePostInForum(String indexedforum, double confidence,double w, int n, String postcorpus) 
+throws Exception{
 
-
-main:
-
-	FORUM = getSemanticFeatureForForum
-        POST = getSemanticFeatureForPost
-
-FORUM E POST SONO LA RAPPRESENTAZIONE DEL FORUM E DEL POST MEDIANTE TDA SEMANTICFEATURE
-
-	getClassification(POST, FORUM)
-        restituisce una classifica di discussioni basata sulla metrica di similitudine definita prima
-
-end main
-
+		SemanticFeature post=getSemanticFeatureForPost(postcorpus, confidence);
+		Object forum=JSer.readAnIndexedForumOnFile(indexedforum);
+		return getClassificationBeta(n,post,(ArrayList<SemanticFeature>) forum,w);
+}

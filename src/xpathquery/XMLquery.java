@@ -1,6 +1,8 @@
 package xpathquery;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
@@ -17,8 +19,8 @@ public class XMLquery{
 			doc = builder.parse(path);
 		}
 		
-		public ArrayList<String> getAttributes() throws XPathExpressionException{
-			ArrayList<String> attributes=new ArrayList<String>();
+		public HashSet<String> getAttributes() throws XPathExpressionException{
+			HashSet<String> attributes=new HashSet<String>();
 			XPathFactory factory = XPathFactory.newInstance();
 			XPath xpath = factory.newXPath();
 			XPathExpression expr = xpath.compile("/forum/post/@discussion");

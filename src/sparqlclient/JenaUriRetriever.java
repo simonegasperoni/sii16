@@ -1,4 +1,5 @@
 package sparqlclient;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import com.hp.hpl.jena.query.ParameterizedSparqlString;
@@ -23,8 +24,8 @@ public class JenaUriRetriever {
 		 ResultSet results = qexec.execSelect() ;
 		 return results;
 	}
-	public static HashSet<String> getCategoriesFromUri(String uri) throws Exception{
-		HashSet<String> categories=new HashSet<String>();
+	public static ArrayList<String> getCategoriesFromUri(String uri) throws Exception{
+		ArrayList<String> categories=new ArrayList<String>();
 		String query="SELECT *"
 				+ "WHERE {<http://dbpedia.org/resource/"+uri+"> "
 				+ "<http://purl.org/dc/terms/subject> "

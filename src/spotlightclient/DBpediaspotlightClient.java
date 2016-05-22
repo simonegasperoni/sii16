@@ -42,17 +42,20 @@ public class DBpediaspotlightClient extends AnnotationClient {
 	//private final static String API_URL = "http://jodaiber.dyndns.org:2222/";
     //private final static String API_URL = "http://spotlight.dbpedia.org/";
     private final static String API_URL = "http://spotlight.sztaki.hu:2222/";
-	private static final double CONFIDENCE = 0.5;
+	private double confidence;
 	private static final int SUPPORT = 20;
 
-	@Override
+	
+	public DBpediaspotlightClient(double c){
+		confidence=c;
+	}
 	public List<DBpediaResource> extract(Text text) throws AnnotationException {
 
         LOG.info("Querying API.");
 		String spotlightResponse;
 		try {
 			GetMethod getMethod = new GetMethod(API_URL + "rest/annotate/?" +
-					"confidence=" + CONFIDENCE
+					"confidence=" + confidence
 					+ "&support=" + SUPPORT
 					+ "&text=" + URLEncoder.encode(text.text(), "utf-8"));
 			getMethod.addRequestHeader(new Header("Accept", "application/json"));
