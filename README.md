@@ -18,9 +18,26 @@ Titolo: Raccomandazione automatica della sezione e delle discussioni per nuovi p
 Implementazione di un framework in java che indicizza le sezioni e le discussioni di un forum tramite feature ontologiche estratte con spotlight su dbpedia. Le feature vengono utilizzate da un modulo sparql che estrae le categorie di apparteneza delle uri di spotlight. 
 Sia le categorie che le uri sono utilizzate come metrica di similitudine per la determinazione della rilevanza del post rispetto ad una determinata sezione e/o discussione.
 
+Le feature ontologiche consistono in risorse "uri" estratte automaticamente da Dbpedia Spotlight in altre "uri" estratte mediante interrogazioni SPARQL che sono le categorie di appartenenza delle prime.
+> DBpedia Spotlight – tool for annotating mentions of DBpedia resources in natural language text, providing capabilities useful for Named Entity Recognition, Name Resolution, amongst other information extraction tasks.
 
-nel file xml di input sono riportati solo i post che rappresentano meglio le discussioni e le sezioni:
-esempio di file di input: file demo.xml
+Nel file xml di input sono riportati solo i post che rappresentano meglio le discussioni e le sezioni: guarda file di input demo.xml
+
+'''
+<forum name="hardforum">
+      <post id="0bfca667-1e84-468d-85d8-54a765f9050e" section="Video Cards" discussion="Ashes of the Singularity Day 1 Benchmark Preview @ [H]">"Ashes of the Singularity Day 1 Benchmark Preview - The new Ashes of the Singularity game has finally been released on the PC. This game supports DX11 and the new DX12 API with advanced features. In this Day 1 Benchmark Preview we will run a few cards through the in-game canned benchmark comparing DX11 versus DX12 performance and NVIDIA versus AMD performance."</post>
+   <post id="6054109d-8179-418e-8b6d-43fd1586fe95" section="Video Cards" discussion="Rise of the Tomb Raider DX11 vs. DX12 Review @ [H]">"Rise of the Tomb Raider DX11 vs. DX12 Review - Rise of the Tomb Raider has recently received a new patch which adds DX12 API support, in addition the patch adds NVIDIA VXAO Ambient Occlusion technology, however just under DX11. In this evaluation we will find out if DX12 is beneficial to the gameplay experience currently and how it impacts certain GPUs."</post>
+
+   ...
+
+   <post id="51e73fa7-fe50-4c8b-bdb8-7782dfe22879" section="Video Cards" discussion="Fallout 4 Patch 1.3 New Image Quality Features @ [H]">"Fallout 4 Patch 1.3 New Image Quality Features - A new patch, version 1.3.47 is out for Fallout 4 and with it brings a couple of big image quality improvements. HBAO+ Ambient Occlusion is added as well as hardware driven Particle Weapon Debris. We will compare these new image quality features and see how they help improve the gameplay experience of Fallout 4."</post>
+</forum>
+'''
+
+La prima fase consiste ovviamente nel processamento di questo file per la determinazione delle risorse uri per ogni discussione, il risultato sarà serializzato in un file dati che rappresenta l'intero forum.
+
+Quando si vuole raccomandare una discussione per un nuovo post, si deve ottenere una rappresentazione del post mediante risorse uri e confrontare  le uri del post con quelle di ciascuna discussione memorizzate dentro il file dati riportando le discussioni che ottengono uno "score" (similitudine) più alto.
+Riporto di seguito la metrica utilizzata per la determinazione dello "score" delle discussioni rispetto ad un post 
 
 ------------------------------------------------
 SIMILITUDINE POST-DISCUSSIONE:
