@@ -1,11 +1,6 @@
 # sii16
-----------------------------------------------------------------------
-
 SISTEMI INTELLIGENTI PER INTERNET
 AA 15 16
-
- *  simone gasperoni
- *  antonio d'innocente
 
 ------------------------------------------------------------------------
 
@@ -80,9 +75,10 @@ Metodi importanti di alto livello:
 1. STRING indexedForum: file dati che conterrà le semantic feature dell'intero forum
 2. DOUBLE confidence:   confidenza per spotlight su dbpedia
 3. STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato
+4. BOOLEAN update:      se 'true' aggiorna un file bin già esistente, altrimenti lo crea o lo sovrascrive
 
 ```
-public static void serializeIndexedForum(String indexedforum, double confidence,String xmlforum) 
+public static void serializeIndexedForum(String indexedforum, double confidence, String xmlforum, boolean update) 
 throws Exception{
 		ArrayList<SemanticFeature> ris=getSemanticFeatureForForum(xmlforum, confidence);
 		Iterator<SemanticFeature> i=ris.iterator();
@@ -90,7 +86,8 @@ throws Exception{
 			SemanticFeature s=i.next();
 			System.out.println(s.toString());
 		}
-		JSer.writeOnFile(indexedforum,ris);
+		if(update) JSer.addSemanticFeature(indexedforum, ris);
+		else JSer.writeOnFile(indexedforum,ris);
 }
 ```
 
