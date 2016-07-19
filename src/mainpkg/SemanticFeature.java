@@ -21,7 +21,7 @@ public class SemanticFeature implements Serializable{
 		sparqluris=new ArrayList<String>();
 	}
 	public String toString(){
-		return "CORPUS/DISCUSSION: "+ discussion
+		return "\n CORPUS/DISCUSSION: "+ discussion
 				+ "\n -> URIS from spotlight: "+spotlighturis.toString()
 				+ "\n -> URIS from sparql: "+sparqluris.toString();
 	}

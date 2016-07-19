@@ -40,8 +40,9 @@ import java.util.List;
 public class DBpediaspotlightClient extends AnnotationClient {
 
 	//private final static String API_URL = "http://jodaiber.dyndns.org:2222/";
-    //private final static String API_URL = "http://spotlight.dbpedia.org/";
+    //private final static String API_URL = "http://spotlight.dbpedia.org:2222/";
     private final static String API_URL = "http://spotlight.sztaki.hu:2222/";
+	//private final static String API_URL = "http://localhost:2222/";
 	private double confidence;
 	private static final int SUPPORT = 20;
 

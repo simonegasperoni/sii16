@@ -122,17 +122,19 @@ public class Main {
 	 * 
 	 *  STRING indexedForum: file dati che conterrà le semantic feature dell'intero forum
 	 *  DOUBLE confidence:   confidenza per spotlight su dbpedia
-	 *  STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato	    
+	 *  STRING xmlforum:     file di input in formato xml che contiene discussioni del post nel formato specificato
+	 *  BOOLEAN update:      se aggiorniamo un file esistente è 'true'	    
 	 *  
 	 */
-	public static void serializeIndexedForum(String indexedforum, double confidence,String xmlforum) throws Exception{
+	public static void serializeIndexedForum(String indexedforum, double confidence, String xmlforum, boolean update) throws Exception{
 		ArrayList<SemanticFeature> ris=getSemanticFeatureForForum(xmlforum, confidence);
 		Iterator<SemanticFeature> i=ris.iterator();
 		while(i.hasNext()){
 			SemanticFeature s=i.next();
 			System.out.println(s.toString());
 		}
-		JSer.writeOnFile(indexedforum,ris);
+		if(update) JSer.addSemanticFeature(indexedforum, ris);
+		else JSer.writeOnFile(indexedforum,ris);
 	}
 	/* evaluatePostInForum: determinazione feature semantiche per post e calcolo degli score delle discussioni
 	 * --------------------------------------------------------------------------------------
@@ -156,7 +158,9 @@ public class Main {
 	 * 
 	 */
 	public static void main(String[] args) throws Exception {
-		serializeIndexedForum("forum.bin", 0.5,"/home/simone/input xml sii/output.xml");
-		System.out.println(evaluatePostInForum("forum.bin", 0.5, 0.5, 3,"primetime said: ↑ Honestly....games will always be limited by consoles since thats were the money is really made in game sales....if it were not for that then it be different Click to expand... Unfortunately there isn't that big of a difference. I mean you might shave some seconds off here and there. In the long run unless you're doing encoding professionally 8 hours a day you won't notice the difference. Mutimedia Testing - Intel Skylake Core i7-6700K IPC &amp; Overclocking Review"));
+		//serializeIndexedForum("forum2.bin", 0.8,"/home/simone/input xml sii/outputantonio.xml", false);
+		System.out.println(evaluatePostInForum("forum2.bin", 0.9, 0.5, 5,"We are taking the new AMD FX-8150 and giving it the power of Dual and Triple-SLI GeForce GTX 580 video cards. "));
+		//ArrayList<SemanticFeature> al=JSer.readAnIndexedForumOnFile("forum2.bin");
+		//System.out.println(al);
 	}
 }

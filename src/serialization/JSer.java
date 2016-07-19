@@ -22,6 +22,11 @@ public class JSer {
 		}
 		return true;
 	}
+	public static boolean addSemanticFeature(String fileName, ArrayList<SemanticFeature> object){
+		ArrayList<SemanticFeature> forum=readAnIndexedForumOnFile(fileName);
+		forum.addAll(object);
+		return writeOnFile(fileName, forum);
+	}
 	@SuppressWarnings("unchecked")
 	public static ArrayList<SemanticFeature> readAnIndexedForumOnFile(String fileName){	
 		FileInputStream fileInputStream = null;
