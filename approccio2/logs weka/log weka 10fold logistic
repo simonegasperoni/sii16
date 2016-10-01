@@ -1,0 +1,87 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                   Class
+Variable                           anime       beer  economics    fitness
+=========================================================================
+anime_relationships_count          0.042     0.0011    -0.0275     0.0013
+fitness_relationships_count       0.0198     0.0119    -0.9784     0.0198
+anime_keywords                    0.3323    -0.0578     0.1065    -0.5397
+beer_keywords                     0.1072     0.3568     -0.023     0.1484
+economics_keywords                0.2316     0.3194     0.4882     0.2654
+fitness_keywords                  0.0574     0.1657     0.0224       0.27
+robotics_keywords                -0.4658    -0.2261    -0.3611    -0.2186
+dbpedia_entities                 -0.4556    -0.3379    -0.3055     -0.409
+post_length                       0.0019    -0.0008     0.0023     0.0005
+Intercept                         0.6606    -0.7933    -0.2148     1.1353
+
+
+Odds Ratios...
+                                   Class
+Variable                           anime       beer  economics    fitness
+=========================================================================
+anime_relationships_count         1.0429     1.0011     0.9728     1.0013
+fitness_relationships_count         1.02     1.0119     0.3759       1.02
+anime_keywords                    1.3942     0.9438     1.1124     0.5829
+beer_keywords                     1.1132     1.4288     0.9772     1.1599
+economics_keywords                1.2607     1.3763     1.6293     1.3039
+fitness_keywords                  1.0591     1.1802     1.0226       1.31
+robotics_keywords                 0.6276     0.7976     0.6969     0.8037
+dbpedia_entities                  0.6341     0.7133     0.7367     0.6643
+post_length                       1.0019     0.9992     1.0023     1.0005
+
+
+Time taken to build model: 0.57 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         817               82.5253 %
+Incorrectly Classified Instances       173               17.4747 %
+Kappa statistic                          0.7816
+Mean absolute error                      0.092 
+Root mean squared error                  0.2191
+Relative absolute error                 28.743  %
+Root relative squared error             54.7808 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,758    0,028    0,872      0,758    0,811      0,770    0,958     0,893     anime
+                 0,899    0,013    0,947      0,899    0,922      0,904    0,976     0,955     beer
+                 0,838    0,023    0,902      0,838    0,869      0,839    0,968     0,930     economics
+                 0,813    0,117    0,634      0,813    0,712      0,637    0,939     0,813     fitness
+                 0,818    0,038    0,844      0,818    0,831      0,789    0,962     0,915     robotics
+Weighted Avg.    0,825    0,044    0,840      0,825    0,829      0,788    0,961     0,901     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 150   1   8  34   5 |   a = anime
+   2 178   1  15   2 |   b = beer
+   8   1 166  14   9 |   c = economics
+  10   8   5 161  14 |   d = fitness
+   2   0   4  30 162 |   e = robotics
+
+

@@ -1,0 +1,213 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -0.30314620472029385
+    Node 5    0.5153281985922955
+    Node 6    -5.673734303347465
+    Node 7    -4.505601235598637
+    Node 8    8.622030287994694
+    Node 9    -5.655908440646524
+    Node 10    3.967828702391637
+    Node 11    -1.7346657079803234
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    -3.942983135406926
+    Node 5    -0.5534704947089019
+    Node 6    6.148400594085352
+    Node 7    3.975700079436151
+    Node 8    -3.5119825961187616
+    Node 9    -7.138950526120748
+    Node 10    -1.151209061857451
+    Node 11    -7.376044319993584
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -1.6769866094607224
+    Node 5    -5.478394794617958
+    Node 6    3.0780471683075423
+    Node 7    -3.0921560227445988
+    Node 8    -2.7717015216028806
+    Node 9    0.17138915902496346
+    Node 10    2.106562965659009
+    Node 11    -1.161290530275302
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -1.1591841989195368
+    Node 5    -2.810735390125245
+    Node 6    -5.850186817999268
+    Node 7    3.808340626146933
+    Node 8    -0.3189326633268487
+    Node 9    -0.09102654764742998
+    Node 10    0.804777781175489
+    Node 11    -3.077260841959291
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -1.1103135991607989
+    Node 5    4.518174647814805
+    Node 6    -1.0550650735958536
+    Node 7    -3.7099432107633397
+    Node 8    -5.184049707134322
+    Node 9    1.3886927990205273
+    Node 10    -5.294605372023822
+    Node 11    0.5847669737826803
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -0.550530183329645
+    Attrib beer_relationships_count    0.034736910378721675
+    Attrib anime_relationships_count    0.23561879983273115
+    Attrib fitness_relationships_count    -0.949911552208227
+    Attrib anime_keywords    -3.21398465295952
+    Attrib beer_keywords    10.582163376207244
+    Attrib economics_keywords    -8.190617267209097
+    Attrib fitness_keywords    -0.9046745529260084
+    Attrib robotics_keywords    5.715511339621665
+    Attrib dbpedia_entities    0.09831041506939726
+    Attrib post_length    -0.6582739773632462
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    0.2006296860288284
+    Attrib beer_relationships_count    -0.03207196942760579
+    Attrib anime_relationships_count    -0.8742744577778816
+    Attrib fitness_relationships_count    -1.2820824849372656
+    Attrib anime_keywords    -1.9451699342861686
+    Attrib beer_keywords    2.4516453577429043
+    Attrib economics_keywords    1.6880450396993316
+    Attrib fitness_keywords    -5.220285681434429
+    Attrib robotics_keywords    -0.011029822909325
+    Attrib dbpedia_entities    10.73601775215357
+    Attrib post_length    -0.8427337797379469
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    -4.766153073230621
+    Attrib beer_relationships_count    -0.03695808517523128
+    Attrib anime_relationships_count    3.7721946180325165
+    Attrib fitness_relationships_count    3.331309137998173
+    Attrib anime_keywords    -5.058176571227177
+    Attrib beer_keywords    4.401272795063569
+    Attrib economics_keywords    -12.442199960708663
+    Attrib fitness_keywords    8.098044081887734
+    Attrib robotics_keywords    -2.1709769869349373
+    Attrib dbpedia_entities    1.018871661287535
+    Attrib post_length    -2.013148784180876
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    -4.2637110046009195
+    Attrib beer_relationships_count    0.02028810918837022
+    Attrib anime_relationships_count    4.725203834372781
+    Attrib fitness_relationships_count    2.400701273150652
+    Attrib anime_keywords    10.21365709706315
+    Attrib beer_keywords    0.5087487050063764
+    Attrib economics_keywords    -3.5467708732239522
+    Attrib fitness_keywords    8.625548965811493
+    Attrib robotics_keywords    -4.463388812588383
+    Attrib dbpedia_entities    -4.915027370503198
+    Attrib post_length    1.4798282282263442
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    0.22125844414713589
+    Attrib beer_relationships_count    -0.0366103103725032
+    Attrib anime_relationships_count    -0.519553949425359
+    Attrib fitness_relationships_count    0.6914988552333212
+    Attrib anime_keywords    -4.18200062769761
+    Attrib beer_keywords    -4.836923632161311
+    Attrib economics_keywords    6.745454173114739
+    Attrib fitness_keywords    5.028348751202246
+    Attrib robotics_keywords    3.886490257748494
+    Attrib dbpedia_entities    -1.6540600293540406
+    Attrib post_length    2.7005060708350768
+Sigmoid Node 10
+    Inputs    Weights
+    Threshold    1.8301485174931886
+    Attrib beer_relationships_count    -0.005156269801430635
+    Attrib anime_relationships_count    -0.6638252009799397
+    Attrib fitness_relationships_count    2.640718260677789
+    Attrib anime_keywords    -1.395300093786899
+    Attrib beer_keywords    3.4861074100398137
+    Attrib economics_keywords    4.43702747021669
+    Attrib fitness_keywords    -2.9242341801392118
+    Attrib robotics_keywords    -6.697402047809653
+    Attrib dbpedia_entities    1.6822569630833677
+    Attrib post_length    4.539505468607472
+Sigmoid Node 11
+    Inputs    Weights
+    Threshold    2.1167302039629887
+    Attrib beer_relationships_count    -0.001372906860151693
+    Attrib anime_relationships_count    -1.2665442029531002
+    Attrib fitness_relationships_count    -4.162589617417323
+    Attrib anime_keywords    8.305437370991887
+    Attrib beer_keywords    1.7655039940393624
+    Attrib economics_keywords    -2.0374359141578147
+    Attrib fitness_keywords    0.16345433703338672
+    Attrib robotics_keywords    6.7169669912668555
+    Attrib dbpedia_entities    0.7615873519766266
+    Attrib post_length    0.26397929487324895
+Class anime
+    Input
+    Node 0
+Class beer
+    Input
+    Node 1
+Class economics
+    Input
+    Node 2
+Class fitness
+    Input
+    Node 3
+Class robotics
+    Input
+    Node 4
+
+
+Time taken to build model: 3.87 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         822               83.0303 %
+Incorrectly Classified Instances       168               16.9697 %
+Kappa statistic                          0.7879
+Mean absolute error                      0.0848
+Root mean squared error                  0.2281
+Relative absolute error                 26.512  %
+Root relative squared error             57.0333 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,833    0,066    0,760      0,833    0,795      0,742    0,929     0,881     anime
+                 0,909    0,028    0,891      0,909    0,900      0,875    0,982     0,913     beer
+                 0,828    0,034    0,859      0,828    0,843      0,805    0,935     0,858     economics
+                 0,768    0,059    0,764      0,768    0,766      0,707    0,919     0,794     fitness
+                 0,813    0,025    0,890      0,813    0,850      0,815    0,947     0,840     robotics
+Weighted Avg.    0,830    0,042    0,833      0,830    0,831      0,789    0,942     0,857     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 165   4   8  16   5 |   a = anime
+   4 180   4   9   1 |   b = beer
+  14   6 164  10   4 |   c = economics
+  19  10   7 152  10 |   d = fitness
+  15   2   8  12 161 |   e = robotics
+
+

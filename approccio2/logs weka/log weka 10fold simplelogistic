@@ -1,0 +1,101 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SimpleLogistic -I 0 -M 500 -H 50 -W 0.0
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SimpleLogistic:
+
+Class 0 :
+-1 + 
+[fitness_relationships_count] * 0.01 +
+[anime_keywords] * 0.22 +
+[economics_keywords] * -0.03 +
+[robotics_keywords] * -0.19 +
+[dbpedia_entities] * -0.05 +
+[post_length] * 0   
+
+Class 1 :
+-2.56 + 
+[anime_keywords] * -0.13 +
+[beer_keywords] * 0.23 +
+[economics_keywords] * 0.03 +
+[fitness_keywords] * 0.03 +
+[post_length] * -0
+
+Class 2 :
+-1.73 + 
+[fitness_relationships_count] * -0 +
+[beer_keywords] * -0.05 +
+[economics_keywords] * 0.2  +
+[fitness_keywords] * -0.01 +
+[robotics_keywords] * -0.06 +
+[post_length] * 0   
+
+Class 3 :
+-0.62 + 
+[fitness_relationships_count] * 0.01 +
+[anime_keywords] * -0.45 +
+[fitness_keywords] * 0.16 +
+[dbpedia_entities] * -0.07
+
+Class 4 :
+-1.63 + 
+[fitness_relationships_count] * -0 +
+[anime_keywords] * -0.03 +
+[beer_keywords] * -0.03 +
+[economics_keywords] * -0.12 +
+[fitness_keywords] * -0.03 +
+[robotics_keywords] * 0.17 +
+[dbpedia_entities] * 0.16
+
+
+Time taken to build model: 1.04 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         822               83.0303 %
+Incorrectly Classified Instances       168               16.9697 %
+Kappa statistic                          0.7879
+Mean absolute error                      0.0994
+Root mean squared error                  0.2201
+Relative absolute error                 31.0554 %
+Root relative squared error             55.0155 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,747    0,015    0,925      0,747    0,827      0,796    0,961     0,906     anime
+                 0,904    0,013    0,947      0,904    0,925      0,907    0,983     0,959     beer
+                 0,823    0,024    0,896      0,823    0,858      0,825    0,968     0,927     economics
+                 0,854    0,131    0,619      0,854    0,718      0,646    0,940     0,827     fitness
+                 0,823    0,029    0,876      0,823    0,849      0,813    0,970     0,915     robotics
+Weighted Avg.    0,830    0,042    0,853      0,830    0,835      0,798    0,964     0,907     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 148   1   7  40   2 |   a = anime
+   2 179   1  14   2 |   b = beer
+   4   1 163  22   8 |   c = economics
+   5   8   5 169  11 |   d = fitness
+   1   0   6  28 163 |   e = robotics
+
+

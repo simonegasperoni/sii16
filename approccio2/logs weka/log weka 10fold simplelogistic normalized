@@ -1,0 +1,94 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SimpleLogistic -I 0 -M 500 -H 50 -W 0.0
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SimpleLogistic:
+
+Class 0 :
+-0.37 + 
+[anime_relationships_count] * 0.88 +
+[fitness_relationships_count] * 0.6  +
+[anime_keywords] * 3.74 +
+[dbpedia_entities] * -0.07
+
+Class 1 :
+-2.29 + 
+[beer_keywords] * 4.57 +
+[fitness_keywords] * -1.89 +
+[dbpedia_entities] * 0.03
+
+Class 2 :
+-1.39 + 
+[fitness_relationships_count] * -0.85 +
+[beer_keywords] * -0.53 +
+[economics_keywords] * 3.91 +
+[fitness_keywords] * -0.42 +
+[post_length] * 0   
+
+Class 3 :
+-0.54 + 
+[fitness_relationships_count] * 0.72 +
+[anime_keywords] * -1.4 +
+[beer_keywords] * -0.26 +
+[fitness_keywords] * 2.52 +
+[dbpedia_entities] * -0.03
+
+Class 4 :
+-1.33 + 
+[fitness_relationships_count] * -0.89 +
+[fitness_keywords] * 0.21 +
+[robotics_keywords] * 4.77 +
+[dbpedia_entities] * 0.02
+
+
+Time taken to build model: 1.54 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         823               83.1313 %
+Incorrectly Classified Instances       167               16.8687 %
+Kappa statistic                          0.7891
+Mean absolute error                      0.1002
+Root mean squared error                  0.2211
+Relative absolute error                 31.3203 %
+Root relative squared error             55.2625 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,803    0,052    0,795      0,803    0,799      0,748    0,946     0,899     anime
+                 0,909    0,038    0,857      0,909    0,882      0,852    0,983     0,950     beer
+                 0,859    0,033    0,867      0,859    0,863      0,829    0,960     0,919     economics
+                 0,793    0,072    0,734      0,793    0,762      0,701    0,931     0,784     fitness
+                 0,793    0,016    0,924      0,793    0,853      0,824    0,951     0,893     robotics
+Weighted Avg.    0,831    0,042    0,835      0,831    0,832      0,791    0,954     0,889     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 159   8   4  23   4 |   a = anime
+   3 180   5   9   1 |   b = beer
+  11   4 170  11   2 |   c = economics
+  13  13   9 157   6 |   d = fitness
+  14   5   8  14 157 |   e = robotics
+
+

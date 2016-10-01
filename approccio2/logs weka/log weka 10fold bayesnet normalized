@@ -1,0 +1,77 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.BayesNet -D -Q weka.classifiers.bayes.net.search.local.K2 -- -P 1 -S BAYES -E weka.classifiers.bayes.net.estimate.SimpleEstimator -- -A 0.5
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bayes Network Classifier
+not using ADTree
+#attributes=11 #classindex=10
+Network structure (nodes followed by parents)
+beer_relationships_count(1): topic 
+anime_relationships_count(2): topic 
+fitness_relationships_count(2): topic 
+anime_keywords(4): topic 
+beer_keywords(3): topic 
+economics_keywords(2): topic 
+fitness_keywords(4): topic 
+robotics_keywords(3): topic 
+dbpedia_entities(2): topic 
+post_length(2): topic 
+topic(5): 
+LogScore Bayes: -6057.313919952874
+LogScore BDeu: -6235.466738211097
+LogScore MDL: -6234.57150208462
+LogScore ENTROPY: -5962.112156831038
+LogScore AIC: -6041.112156831038
+
+
+Time taken to build model: 0.18 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         813               82.1212 %
+Incorrectly Classified Instances       177               17.8788 %
+Kappa statistic                          0.7765
+Mean absolute error                      0.0844
+Root mean squared error                  0.2352
+Relative absolute error                 26.3784 %
+Root relative squared error             58.7942 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,763    0,028    0,873      0,763    0,814      0,774    0,939     0,883     anime
+                 0,914    0,038    0,858      0,914    0,885      0,856    0,973     0,891     beer
+                 0,833    0,023    0,902      0,833    0,866      0,835    0,948     0,895     economics
+                 0,793    0,104    0,657      0,793    0,719      0,644    0,921     0,791     fitness
+                 0,803    0,032    0,864      0,803    0,832      0,793    0,944     0,891     robotics
+Weighted Avg.    0,821    0,045    0,831      0,821    0,823      0,781    0,945     0,870     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 151   8   4  32   3 |   a = anime
+   2 181   2   8   5 |   b = beer
+   7   4 165  18   4 |   c = economics
+   7  14   7 157  13 |   d = fitness
+   6   4   5  24 159 |   e = robotics
+
+

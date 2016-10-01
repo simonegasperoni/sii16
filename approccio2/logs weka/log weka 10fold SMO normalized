@@ -1,0 +1,244 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -E 1.0 -C 250007" -calibrator "weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4"
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: anime, beer
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0      * (normalized) anime_relationships_count
+ +      -1.1269 * (normalized) anime_keywords
+ +       2.1027 * (normalized) beer_keywords
+ +      -0.1968 * (normalized) economics_keywords
+ +      -0.3774 * (normalized) fitness_keywords
+ +      -1.2882 * (normalized) robotics_keywords
+ +       1.0535 * (normalized) dbpedia_entities
+ +       0.0985 * (normalized) post_length
+ -       1.0169
+
+Number of kernel evaluations: 9324 (77.079% cached)
+
+Classifier for classes: anime, economics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0      * (normalized) anime_relationships_count
+ +      -0.0426 * (normalized) fitness_relationships_count
+ +      -0.7538 * (normalized) anime_keywords
+ +      -0.0675 * (normalized) beer_keywords
+ +       2.0203 * (normalized) economics_keywords
+ +      -0.0134 * (normalized) fitness_keywords
+ +      -0.0149 * (normalized) robotics_keywords
+ +       0.9934 * (normalized) dbpedia_entities
+ +       0.6247 * (normalized) post_length
+ -       1.0222
+
+Number of kernel evaluations: 16240 (72.779% cached)
+
+Classifier for classes: anime, fitness
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.0514 * (normalized) fitness_relationships_count
+ +      -2.0922 * (normalized) anime_keywords
+ +      -0.1059 * (normalized) beer_keywords
+ +      -0.01   * (normalized) economics_keywords
+ +       0.1478 * (normalized) fitness_keywords
+ +      -0.0321 * (normalized) robotics_keywords
+ +       0.0999 * (normalized) dbpedia_entities
+ +      -0.0618 * (normalized) post_length
+ +       0.9589
+
+Number of kernel evaluations: 19705 (75.948% cached)
+
+Classifier for classes: anime, robotics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0      * (normalized) anime_relationships_count
+ +      -0.5335 * (normalized) fitness_relationships_count
+ +      -0.9114 * (normalized) anime_keywords
+ +       0.0258 * (normalized) beer_keywords
+ +       0.4937 * (normalized) economics_keywords
+ +       0.4886 * (normalized) fitness_keywords
+ +       2.1538 * (normalized) robotics_keywords
+ +       0.8992 * (normalized) dbpedia_entities
+ +      -0.0755 * (normalized) post_length
+ -       1.0004
+
+Number of kernel evaluations: 15588 (70.892% cached)
+
+Classifier for classes: beer, economics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.1673 * (normalized) fitness_relationships_count
+ +       1.0981 * (normalized) anime_keywords
+ +      -2.3745 * (normalized) beer_keywords
+ +       1.2135 * (normalized) economics_keywords
+ +       0.3053 * (normalized) fitness_keywords
+ +       0.3873 * (normalized) robotics_keywords
+ +      -0.8119 * (normalized) dbpedia_entities
+ +       0.2707 * (normalized) post_length
+ +       1.015 
+
+Number of kernel evaluations: 5617 (72.568% cached)
+
+Classifier for classes: beer, fitness
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.0302 * (normalized) fitness_relationships_count
+ +       0.5258 * (normalized) anime_keywords
+ +      -2.1125 * (normalized) beer_keywords
+ +       0.1265 * (normalized) economics_keywords
+ +       1.4953 * (normalized) fitness_keywords
+ +       0.2008 * (normalized) robotics_keywords
+ +      -1.6149 * (normalized) dbpedia_entities
+ +      -0.3246 * (normalized) post_length
+ +       1.0282
+
+Number of kernel evaluations: 6854 (77.051% cached)
+
+Classifier for classes: beer, robotics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.2105 * (normalized) fitness_relationships_count
+ +       0.728  * (normalized) anime_keywords
+ +      -2.2617 * (normalized) beer_keywords
+ +       0.2637 * (normalized) economics_keywords
+ +       0.8526 * (normalized) fitness_keywords
+ +       1.6903 * (normalized) robotics_keywords
+ +      -0.4786 * (normalized) dbpedia_entities
+ +      -0.3155 * (normalized) post_length
+ +       1.0008
+
+Number of kernel evaluations: 10355 (75.575% cached)
+
+Classifier for classes: economics, fitness
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.3341 * (normalized) fitness_relationships_count
+ +      -1.2563 * (normalized) anime_keywords
+ +      -0.0437 * (normalized) beer_keywords
+ +      -2.1857 * (normalized) economics_keywords
+ +       0.7452 * (normalized) fitness_keywords
+ +      -0.0918 * (normalized) robotics_keywords
+ +      -0.3159 * (normalized) dbpedia_entities
+ +      -0.6047 * (normalized) post_length
+ +       1.0163
+
+Number of kernel evaluations: 10902 (79.489% cached)
+
+Classifier for classes: economics, robotics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+         0.4497 * (normalized) fitness_relationships_count
+ +      -0.697  * (normalized) anime_keywords
+ +       0.2247 * (normalized) beer_keywords
+ +      -1.7644 * (normalized) economics_keywords
+ +       0.4068 * (normalized) fitness_keywords
+ +       1.7734 * (normalized) robotics_keywords
+ +      -0.3763 * (normalized) dbpedia_entities
+ +      -0.7726 * (normalized) post_length
+ +       0.3938
+
+Number of kernel evaluations: 12221 (69.584% cached)
+
+Classifier for classes: fitness, robotics
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -0.2179 * (normalized) fitness_relationships_count
+ +       1.1537 * (normalized) anime_keywords
+ +       0.1097 * (normalized) beer_keywords
+ +       0.0933 * (normalized) economics_keywords
+ +      -0.3091 * (normalized) fitness_keywords
+ +       2.1769 * (normalized) robotics_keywords
+ +       0.3859 * (normalized) dbpedia_entities
+ +      -0.2418 * (normalized) post_length
+ -       1.0017
+
+Number of kernel evaluations: 23377 (75.752% cached)
+
+
+
+Time taken to build model: 0.48 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         820               82.8283 %
+Incorrectly Classified Instances       170               17.1717 %
+Kappa statistic                          0.7854
+Mean absolute error                      0.2531
+Root mean squared error                  0.3361
+Relative absolute error                 79.09   %
+Root relative squared error             84.0264 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,742    0,030    0,860      0,742    0,797      0,754    0,892     0,722     anime
+                 0,929    0,042    0,848      0,929    0,887      0,858    0,961     0,829     beer
+                 0,848    0,030    0,875      0,848    0,862      0,828    0,924     0,791     economics
+                 0,823    0,098    0,676      0,823    0,743      0,676    0,876     0,602     fitness
+                 0,798    0,014    0,935      0,798    0,861      0,834    0,908     0,819     robotics
+Weighted Avg.    0,828    0,043    0,839      0,828    0,830      0,790    0,912     0,753     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 147   8   8  32   3 |   a = anime
+   2 184   2   9   1 |   b = beer
+   9   5 168  15   1 |   c = economics
+   7  15   7 163   6 |   d = fitness
+   6   5   7  22 158 |   e = robotics
+
+

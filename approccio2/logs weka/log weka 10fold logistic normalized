@@ -1,0 +1,87 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.Logistic -R 1.0E-8 -M -1 -num-decimal-places 4
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Logistic Regression with ridge parameter of 1.0E-8
+Coefficients...
+                                              Class
+Variable                                      anime                  beer             economics               fitness
+=====================================================================================================================
+anime_relationships_count                   67.3371              -14.1511              -16.2732              -16.4735
+fitness_relationships_count                  2.1025                1.9346               -1.1172                2.3816
+anime_keywords                               4.0385               -7.3884                0.1499               -2.0132
+beer_keywords                                0.3452                4.0811               -1.2134               -0.7165
+economics_keywords                           0.1343               -1.5839                3.8654                0.0586
+fitness_keywords                             0.2724               -2.8218               -0.6269                  2.43
+robotics_keywords                           -3.9462               -7.0352               -5.1078               -4.5803
+dbpedia_entities                            -0.2413                0.1903               -0.0725               -0.0747
+post_length                                  0.0011               -0.0013                0.0009                0.0001
+Intercept                                    0.7339               -0.6182                0.0067                0.8935
+
+
+Odds Ratios...
+                                              Class
+Variable                                      anime                  beer             economics               fitness
+=====================================================================================================================
+anime_relationships_count      1.754405210736668E29                     0                     0                     0
+fitness_relationships_count                  8.1863                6.9215                0.3272               10.8221
+anime_keywords                              56.7405                0.0006                1.1617                0.1336
+beer_keywords                                1.4122                59.211                0.2972                0.4885
+economics_keywords                           1.1437                0.2052               47.7203                1.0604
+fitness_keywords                             1.3131                0.0595                0.5342               11.3586
+robotics_keywords                            0.0193                0.0009                 0.006                0.0103
+dbpedia_entities                             0.7856                1.2096                  0.93                 0.928
+post_length                                  1.0011                0.9987                1.0009                1.0001
+
+
+Time taken to build model: 0.2 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         826               83.4343 %
+Incorrectly Classified Instances       164               16.5657 %
+Kappa statistic                          0.7929
+Mean absolute error                      0.0941
+Root mean squared error                  0.2215
+Relative absolute error                 29.4086 %
+Root relative squared error             55.3769 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,778    0,030    0,865      0,778    0,819      0,779    0,954     0,900     anime
+                 0,914    0,029    0,887      0,914    0,900      0,875    0,982     0,948     beer
+                 0,848    0,029    0,880      0,848    0,864      0,831    0,956     0,903     economics
+                 0,823    0,101    0,671      0,823    0,739      0,671    0,930     0,786     fitness
+                 0,808    0,018    0,920      0,808    0,860      0,831    0,955     0,899     robotics
+Weighted Avg.    0,834    0,041    0,844      0,834    0,837      0,797    0,955     0,887     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 154   5   3  31   5 |   a = anime
+   3 181   4   9   1 |   b = beer
+   8   3 168  17   2 |   c = economics
+   8  11  10 163   6 |   d = fitness
+   5   4   6  23 160 |   e = robotics
+
+

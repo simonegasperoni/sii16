@@ -1,0 +1,123 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                                  Class
+Attribute                         anime      beer economics   fitness  robotics
+                                  (0.2)     (0.2)     (0.2)     (0.2)     (0.2)
+================================================================================
+beer_relationships_count
+  mean                                 0         0         0         0         0
+  std. dev.                       0.0017    0.0017    0.0017    0.0017    0.0017
+  weight sum                         198       198       198       198       198
+  precision                         0.01      0.01      0.01      0.01      0.01
+
+anime_relationships_count
+  mean                            0.2172         0         0         0         0
+  std. dev.                       0.4123    0.1667    0.1667    0.1667    0.1667
+  weight sum                         198       198       198       198       198
+  precision                            1         1         1         1         1
+
+fitness_relationships_count
+  mean                            0.0303    0.0101    0.0101    0.1364    0.0152
+  std. dev.                       0.1714       0.1       0.1    0.3432    0.1222
+  weight sum                         198       198       198       198       198
+  precision                          0.5       0.5       0.5       0.5       0.5
+
+anime_keywords
+  mean                             0.753    0.0065    0.0626    0.0204    0.0559
+  std. dev.                       0.4199    0.0392    0.2013    0.0923    0.1567
+  weight sum                         198       198       198       198       198
+  precision                       0.0092    0.0092    0.0092    0.0092    0.0092
+
+beer_keywords
+  mean                            0.1724    0.9647    0.1358    0.1815    0.1815
+  std. dev.                       0.2511    0.1674    0.2357     0.319    0.2696
+  weight sum                         198       198       198       198       198
+  precision                       0.0043    0.0043    0.0043    0.0043    0.0043
+
+economics_keywords
+  mean                            0.0877    0.0704    0.8784    0.1058    0.1238
+  std. dev.                       0.2063    0.1704    0.3059     0.235    0.2348
+  weight sum                         198       198       198       198       198
+  precision                       0.0049    0.0049    0.0049    0.0049    0.0049
+
+fitness_keywords
+  mean                            0.2092    0.1154    0.1621    0.8328    0.2912
+  std. dev.                       0.2969    0.2066    0.2692    0.3445    0.3417
+  weight sum                         198       198       198       198       198
+  precision                       0.0035    0.0035    0.0035    0.0035    0.0035
+
+robotics_keywords
+  mean                            0.0467    0.0134    0.0569    0.0624    0.8114
+  std. dev.                        0.146    0.0741     0.129    0.1864    0.3598
+  weight sum                         198       198       198       198       198
+  precision                        0.007     0.007     0.007     0.007     0.007
+
+dbpedia_entities
+  mean                            6.5053    9.1598   12.2158    6.1038   10.7984
+  std. dev.                       5.6384    9.2468   10.0089    6.0631    8.7182
+  weight sum                         198       198       198       198       198
+  precision                       1.6222    1.6222    1.6222    1.6222    1.6222
+
+post_length
+  mean                          654.5132  634.2597 1462.6376  620.4943  981.6383
+  std. dev.                     578.2583  729.8188 1287.5099  686.4035 1120.8036
+  weight sum                         198       198       198       198       198
+  precision                      17.3602   17.3602   17.3602   17.3602   17.3602
+
+
+
+Time taken to build model: 0.07 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         826               83.4343 %
+Incorrectly Classified Instances       164               16.5657 %
+Kappa statistic                          0.7929
+Mean absolute error                      0.0695
+Root mean squared error                  0.2395
+Relative absolute error                 21.7176 %
+Root relative squared error             59.8676 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,843    0,058    0,784      0,843    0,813      0,764    0,932     0,883     anime
+                 0,899    0,028    0,890      0,899    0,894      0,868    0,972     0,927     beer
+                 0,854    0,033    0,867      0,854    0,860      0,825    0,956     0,884     economics
+                 0,768    0,063    0,752      0,768    0,760      0,699    0,919     0,739     fitness
+                 0,808    0,025    0,889      0,808    0,847      0,812    0,942     0,878     robotics
+Weighted Avg.    0,834    0,041    0,836      0,834    0,835      0,794    0,944     0,862     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 167   4   7  15   5 |   a = anime
+   4 178   5   8   3 |   b = beer
+  12   3 169  11   3 |   c = economics
+  16  13   8 152   9 |   d = fitness
+  14   2   6  16 160 |   e = robotics
+
+

@@ -1,0 +1,10 @@
+beer_relationships_count
+anime_relationships_count
+fitness_relationships_count
+anime_keywords
+beer_keywords
+economics_keywords
+fitness_keywords
+robotics_keywords
+dbpedia_entities
+post_length

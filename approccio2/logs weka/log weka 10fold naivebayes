@@ -1,0 +1,123 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.NaiveBayes 
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                                   Class
+Attribute                          anime       beer  economics    fitness   robotics
+                                   (0.2)      (0.2)      (0.2)      (0.2)      (0.2)
+=====================================================================================
+beer_relationships_count
+  mean                                  0          0          0          0          0
+  std. dev.                        0.0017     0.0017     0.0017     0.0017     0.0017
+  weight sum                          198        198        198        198        198
+  precision                          0.01       0.01       0.01       0.01       0.01
+
+anime_relationships_count
+  mean                          2094.5455          0          0          0          0
+  std. dev.                    20734.9421       2160       2160       2160       2160
+  weight sum                          198        198        198        198        198
+  precision                         12960      12960      12960      12960      12960
+
+fitness_relationships_count
+  mean                             4.9788     0.3212          0    24.7333     1.7667
+  std. dev.                       35.4561        5.3        5.3    95.8865    20.7605
+  weight sum                          198        198        198        198        198
+  precision                          31.8       31.8       31.8       31.8       31.8
+
+anime_keywords
+  mean                             30.629     0.3375     1.4463     0.0964     0.8517
+  std. dev.                       35.0046     2.6638      5.761     0.6323     3.4502
+  weight sum                          198        198        198        198        198
+  precision                        3.1818     3.1818     3.1818     3.1818     3.1818
+
+beer_keywords
+  mean                             3.1712    53.6486     2.9368      2.468     2.1785
+  std. dev.                        4.4362    44.4331     4.8769     6.3794      3.292
+  weight sum                          198        198        198        198        198
+  precision                          2.73       2.73       2.73       2.73       2.73
+
+economics_keywords
+  mean                             1.5789     3.3393    39.7816     1.5608     1.9056
+  std. dev.                        3.5823     7.8918    46.4981     4.9165     4.8408
+  weight sum                          198        198        198        198        198
+  precision                        3.5934     3.5934     3.5934     3.5934     3.5934
+
+fitness_keywords
+  mean                             3.9763     5.8385     3.8324    19.7197     5.0379
+  std. dev.                        5.0339    11.7022     5.4879     22.007     6.1576
+  weight sum                          198        198        198        198        198
+  precision                        1.7813     1.7813     1.7813     1.7813     1.7813
+
+robotics_keywords
+  mean                             0.8471     0.6688     1.4803     1.4803    22.2397
+  std. dev.                         1.736     2.6988     2.9556     6.6761     21.563
+  weight sum                          198        198        198        198        198
+  precision                        1.7656     1.7656     1.7656     1.7656     1.7656
+
+dbpedia_entities
+  mean                             6.5053     9.1598    12.2158     6.1038    10.7984
+  std. dev.                        5.6384     9.2468    10.0089     6.0631     8.7182
+  weight sum                          198        198        198        198        198
+  precision                        1.6222     1.6222     1.6222     1.6222     1.6222
+
+post_length
+  mean                           654.5132   634.2597  1462.6376   620.4943   981.6383
+  std. dev.                      578.2583   729.8188  1287.5099   686.4035  1120.8036
+  weight sum                          198        198        198        198        198
+  precision                       17.3602    17.3602    17.3602    17.3602    17.3602
+
+
+
+Time taken to build model: 0.02 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         762               76.9697 %
+Incorrectly Classified Instances       228               23.0303 %
+Kappa statistic                          0.7121
+Mean absolute error                      0.1106
+Root mean squared error                  0.2467
+Relative absolute error                 34.5745 %
+Root relative squared error             61.6823 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,722    0,013    0,935      0,722    0,815      0,785    0,952     0,877     anime
+                 0,929    0,063    0,786      0,929    0,852      0,816    0,975     0,930     beer
+                 0,692    0,010    0,945      0,692    0,799      0,771    0,947     0,870     economics
+                 0,758    0,146    0,564      0,758    0,647      0,551    0,904     0,695     fitness
+                 0,747    0,056    0,771      0,747    0,759      0,700    0,950     0,870     robotics
+Weighted Avg.    0,770    0,058    0,800      0,770    0,774      0,725    0,946     0,848     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 143   5   4  35  11 |   a = anime
+   1 184   1  10   2 |   b = beer
+   5  17 137  28  11 |   c = economics
+   3  25   0 150  20 |   d = fitness
+   1   3   3  43 148 |   e = robotics
+
+

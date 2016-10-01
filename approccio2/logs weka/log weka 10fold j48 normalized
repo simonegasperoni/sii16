@@ -1,0 +1,154 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     forum
+Instances:    990
+Attributes:   11
+              beer_relationships_count
+              anime_relationships_count
+              fitness_relationships_count
+              anime_keywords
+              beer_keywords
+              economics_keywords
+              fitness_keywords
+              robotics_keywords
+              dbpedia_entities
+              post_length
+              topic
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+robotics_keywords <= 0.583333
+|   economics_keywords <= 0.970588
+|   |   anime_keywords <= 0.475
+|   |   |   beer_keywords <= 0.733333
+|   |   |   |   fitness_keywords <= 0.5
+|   |   |   |   |   post_length <= 142
+|   |   |   |   |   |   post_length <= 119: robotics (18.0/9.0)
+|   |   |   |   |   |   post_length > 119: anime (4.0/1.0)
+|   |   |   |   |   post_length > 142
+|   |   |   |   |   |   post_length <= 278
+|   |   |   |   |   |   |   dbpedia_entities <= 0: fitness (5.0/2.0)
+|   |   |   |   |   |   |   dbpedia_entities > 0
+|   |   |   |   |   |   |   |   post_length <= 213
+|   |   |   |   |   |   |   |   |   post_length <= 156: fitness (2.0)
+|   |   |   |   |   |   |   |   |   post_length > 156: anime (6.0)
+|   |   |   |   |   |   |   |   post_length > 213: fitness (7.0/1.0)
+|   |   |   |   |   |   post_length > 278
+|   |   |   |   |   |   |   dbpedia_entities <= 1
+|   |   |   |   |   |   |   |   dbpedia_entities <= 0: fitness (2.0)
+|   |   |   |   |   |   |   |   dbpedia_entities > 0: anime (5.0/1.0)
+|   |   |   |   |   |   |   dbpedia_entities > 1
+|   |   |   |   |   |   |   |   post_length <= 410
+|   |   |   |   |   |   |   |   |   dbpedia_entities <= 2: economics (3.0)
+|   |   |   |   |   |   |   |   |   dbpedia_entities > 2: robotics (4.0/2.0)
+|   |   |   |   |   |   |   |   post_length > 410
+|   |   |   |   |   |   |   |   |   post_length <= 556: fitness (2.0)
+|   |   |   |   |   |   |   |   |   post_length > 556: economics (3.0)
+|   |   |   |   fitness_keywords > 0.5
+|   |   |   |   |   beer_keywords <= 0.232143
+|   |   |   |   |   |   beer_keywords <= 0.162162: fitness (136.0/12.0)
+|   |   |   |   |   |   beer_keywords > 0.162162
+|   |   |   |   |   |   |   economics_keywords <= 0.181818
+|   |   |   |   |   |   |   |   dbpedia_entities <= 5: anime (4.0/1.0)
+|   |   |   |   |   |   |   |   dbpedia_entities > 5: fitness (6.0)
+|   |   |   |   |   |   |   economics_keywords > 0.181818: anime (2.0/1.0)
+|   |   |   |   |   beer_keywords > 0.232143
+|   |   |   |   |   |   post_length <= 1080
+|   |   |   |   |   |   |   dbpedia_entities <= 6: fitness (11.0/1.0)
+|   |   |   |   |   |   |   dbpedia_entities > 6
+|   |   |   |   |   |   |   |   beer_keywords <= 0.454545
+|   |   |   |   |   |   |   |   |   beer_keywords <= 0.3: robotics (2.0)
+|   |   |   |   |   |   |   |   |   beer_keywords > 0.3: fitness (4.0)
+|   |   |   |   |   |   |   |   beer_keywords > 0.454545
+|   |   |   |   |   |   |   |   |   dbpedia_entities <= 8: anime (3.0/1.0)
+|   |   |   |   |   |   |   |   |   dbpedia_entities > 8: robotics (3.0/1.0)
+|   |   |   |   |   |   post_length > 1080
+|   |   |   |   |   |   |   economics_keywords <= 0.5: robotics (7.0)
+|   |   |   |   |   |   |   economics_keywords > 0.5: economics (2.0)
+|   |   |   beer_keywords > 0.733333
+|   |   |   |   fitness_keywords <= 0.411765
+|   |   |   |   |   economics_keywords <= 0.407407: beer (186.0/12.0)
+|   |   |   |   |   economics_keywords > 0.407407
+|   |   |   |   |   |   anime_keywords <= 0.088235
+|   |   |   |   |   |   |   fitness_keywords <= 0.008
+|   |   |   |   |   |   |   |   dbpedia_entities <= 4: beer (2.0/1.0)
+|   |   |   |   |   |   |   |   dbpedia_entities > 4: economics (3.0/1.0)
+|   |   |   |   |   |   |   fitness_keywords > 0.008: beer (7.0/1.0)
+|   |   |   |   |   |   anime_keywords > 0.088235: anime (2.0)
+|   |   |   |   fitness_keywords > 0.411765
+|   |   |   |   |   anime_keywords <= 0.009091
+|   |   |   |   |   |   robotics_keywords <= 0.227273
+|   |   |   |   |   |   |   beer_keywords <= 0.837838: anime (2.0/1.0)
+|   |   |   |   |   |   |   beer_keywords > 0.837838
+|   |   |   |   |   |   |   |   robotics_keywords <= 0.042254
+|   |   |   |   |   |   |   |   |   economics_keywords <= 0.010417
+|   |   |   |   |   |   |   |   |   |   post_length <= 191: beer (2.0)
+|   |   |   |   |   |   |   |   |   |   post_length > 191: fitness (15.0/5.0)
+|   |   |   |   |   |   |   |   |   economics_keywords > 0.010417
+|   |   |   |   |   |   |   |   |   |   economics_keywords <= 0.294118: beer (3.0)
+|   |   |   |   |   |   |   |   |   |   economics_keywords > 0.294118: anime (3.0/2.0)
+|   |   |   |   |   |   |   |   robotics_keywords > 0.042254: fitness (3.0)
+|   |   |   |   |   |   robotics_keywords > 0.227273: robotics (2.0)
+|   |   |   |   |   anime_keywords > 0.009091
+|   |   |   |   |   |   anime_keywords <= 0.038462: beer (2.0)
+|   |   |   |   |   |   anime_keywords > 0.038462: economics (2.0)
+|   |   anime_keywords > 0.475: anime (157.0/10.0)
+|   economics_keywords > 0.970588
+|   |   fitness_keywords <= 0.466667: economics (170.0/10.0)
+|   |   fitness_keywords > 0.466667
+|   |   |   robotics_keywords <= 0.454545
+|   |   |   |   anime_keywords <= 0.068182
+|   |   |   |   |   robotics_keywords <= 0.2
+|   |   |   |   |   |   dbpedia_entities <= 5
+|   |   |   |   |   |   |   fitness_keywords <= 0.583333: fitness (3.0/1.0)
+|   |   |   |   |   |   |   fitness_keywords > 0.583333: economics (2.0)
+|   |   |   |   |   |   dbpedia_entities > 5: fitness (4.0/1.0)
+|   |   |   |   |   robotics_keywords > 0.2: economics (2.0/1.0)
+|   |   |   |   anime_keywords > 0.068182: economics (5.0/1.0)
+|   |   |   robotics_keywords > 0.454545: anime (2.0)
+robotics_keywords > 0.583333: robotics (170.0/11.0)
+
+Number of Leaves  : 	46
+
+Size of the tree : 	91
+
+
+Time taken to build model: 0.26 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         815               82.3232 %
+Incorrectly Classified Instances       175               17.6768 %
+Kappa statistic                          0.779 
+Mean absolute error                      0.0929
+Root mean squared error                  0.2451
+Relative absolute error                 29.0179 %
+Root relative squared error             61.2665 %
+Total Number of Instances              990     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,778    0,048    0,802      0,778    0,790      0,738    0,857     0,707     anime
+                 0,889    0,029    0,884      0,889    0,887      0,858    0,939     0,834     beer
+                 0,828    0,037    0,850      0,828    0,839      0,799    0,915     0,777     economics
+                 0,753    0,063    0,749      0,753    0,751      0,688    0,834     0,667     fitness
+                 0,869    0,044    0,831      0,869    0,849      0,811    0,928     0,787     robotics
+Weighted Avg.    0,823    0,044    0,823      0,823    0,823      0,779    0,895     0,755     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+ 154   7   9  18  10 |   a = anime
+   5 176   4   8   5 |   b = beer
+  10   3 164  15   6 |   c = economics
+  15  11   9 149  14 |   d = fitness
+   8   2   7   9 172 |   e = robotics
+
+
