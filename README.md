@@ -1,5 +1,8 @@
-#Tecniche di filtraggio dei contenuti più rilevanti nel Web 2.0
-####PROGETTO DEL CORSO DI SISTEMI INTELLIGENTI PER INTERNET, AA 15 16, Simone Gasperoni, Antonio D'Innocente
+#Filtraggio dei contenuti più rilevanti nel Web 2.0
+####PROGETTO DEL CORSO DI SISTEMI INTELLIGENTI PER INTERNET
+####Simone Gasperoni, Antonio D'Innocente
+####AA 15 16
+-----------------------------------------------------------------
 
 Task assegnato: Tecniche di filtraggio dei contenuti più rilevanti nel Web 2.0 (per 2 persone). Descrizione: Classificazione basata su features estratte dal testo per comprendere se i commenti inviati dagli utenti sui siti web (es. Youtube, forum) sono di particolare rilevanza per la comunità di utenti, ovvero possono essere considerati spam.
 
