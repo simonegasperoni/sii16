@@ -33,8 +33,7 @@ La prima fase consiste ovviamente nel processamento di questo file per la determ
 Quando si vuole raccomandare una discussione per un nuovo post, si deve ottenere una rappresentazione del post mediante risorse uri e confrontare  le uri del post con quelle di ciascuna discussione memorizzate dentro il file dati riportando le discussioni che ottengono uno "score" (similitudine) più alto.
 Riporto di seguito la metrica utilizzata per la determinazione dello "score" delle discussioni rispetto ad un post 
 
-------------------------------------------------
-SIMILITUDINE POST-DISCUSSIONE:
+###similitudine post-discussione:
 
 similitudine tra post p e discussione d
 sim(p,d) = (w) #urispd + (1-w) #categoriespd
@@ -46,16 +45,14 @@ sim(p,d) = (w) #urispd + (1-w) #categoriespd
 Nella raccolta di uri e categorie per discussione, le uri come le categorie si possono ripetere, questo per dare importanza ai concetti che si ripropongono nella discussione, infatti le strutture che memorizzano le uri di spotlight e le categorie non sono insiemi ma liste.
 Come è facile notare con il parametro w è possibile regolare l'importanza del numero di occorrenze delle uri rispetto alle categorie.
 
-------------------------------------------------
-PACKAGE:
+###package:
 
 * serialization: contiene metodi statici utili x la serializzazione delle semantic feature del forum
 * sparqlclient: esegue interrogazioni sparql su dbpedia per trovare le categorie
 * spotlightclient: spotlight, cerca le uri su dbpedia per tutti i corpi testuali grazie alle funzioni rest
 * xpathquey: modulo responsabile delle interrogazioni xpath sul file xml di input
 
-------------------------------------------------
-SemanticFeature
+###SemanticFeature
 
 è stato indispensabile definire un tipo astratto di dato: SemanticFeature
 
@@ -66,7 +63,6 @@ TDA SemanticFeature:
 
 Il forum viene rappresentato da un lista di SemanticFeature
 
--------------------------------------------------------------------
 Metodi importanti di alto livello:
 
 * serializeIndexedForum: determinazione delle feature semantiche del forum (discussione per discussione) e serializzazione su file dati
@@ -106,6 +102,8 @@ throws Exception{
 		return getClassificationBeta(n,post,(ArrayList<SemanticFeature>) forum,w);
 }
 ```
+
+-----------------------------------------------------------
 
 ##approccio2
 Obiettivo: ottenere più insiemi di post rilevanti per una determinata comunità di utenti (forum). Selezionare tematiche abbastanza diverse tra loro, in modo da sfruttare le caratteristiche di Dbpedia. Inizialmente era stato creato un parser che si connetteva ad un forum, scaricando automaticamente i post per ogni sezione (progetto forumExtractor), tuttavia le sezioni del forum trattavano di diversi tipi di hardware per computer, argomenti troppo collegati tra loro per essere usati in questo progetto.
